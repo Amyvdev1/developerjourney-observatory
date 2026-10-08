@@ -1,0 +1,28 @@
+{
+  "slug": "developerjourney-observatory",
+  "name": "DeveloperJourney",
+  "theme": "amber",
+  "symbol": "\u2192",
+  "seal": "RECOVERY IS A JOURNEY",
+  "subtitle": "Developer Onboarding & Recovery Observatory",
+  "headline": "Follow the friction.",
+  "emphasis": "Design the recovery.",
+  "description": "Replay privacy-safe synthetic onboarding journeys. Compare documentation versions and turn time-to-success, failures and recovery evidence into product improvements.",
+  "port": 4315,
+  "button": "Run synthetic journeys \u2192",
+  "kind": "run",
+  "payload": {
+    "version": "both"
+  },
+  "boundary": "Synthetic sessions only. Timing is fixture-defined, not real developer behavior. No tokens, real-user tracking or external API requests.",
+  "method": [
+    "Choose a seed and session count to produce reproducible synthetic events.",
+    "Follow quickstart, credentials, first request, error understanding, retry and first useful task.",
+    "Validate an event allowlist; reject extra fields, secret-like identifiers and non-synthetic events.",
+    "Compare v1/v2 median and p95 first-success time, recovery and drop-offs.",
+    "Link improvement recommendations to session evidence and export a clearly labelled local benchmark."
+  ],
+  "footer": "Synthetic by design \u00b7 privacy by schema \u00b7 evidence-led recovery",
+  "article": "Measure recovery without collecting credentials",
+  "summary": "A synthetic-only onboarding analytics system with reproducible journeys, strict privacy validation, first-success and recovery metrics, drop-off taxonomy, documentation-version comparisons and evidence-linked recommendations."
+}

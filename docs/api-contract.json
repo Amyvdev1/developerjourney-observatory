@@ -1,0 +1,143 @@
+{
+  "openapi": "3.1.0",
+  "info": {
+    "title": "DeveloperJourney local API",
+    "version": "1.0.0",
+    "description": "Synthetic sessions only. Timing is fixture-defined, not real developer behavior. No tokens, real-user tracking or external API requests."
+  },
+  "servers": [
+    {
+      "url": "http://127.0.0.1:4315"
+    }
+  ],
+  "paths": {
+    "/api/health": {
+      "get": {
+        "responses": {
+          "200": {
+            "description": "Local service health"
+          }
+        }
+      }
+    },
+    "/api/state": {
+      "get": {
+        "responses": {
+          "200": {
+            "description": "Validated workspace, revision, latest runs and product metadata"
+          }
+        }
+      },
+      "post": {
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "required": ["revision", "state"],
+                "properties": {
+                  "revision": {
+                    "type": "integer",
+                    "minimum": 0
+                  },
+                  "state": {
+                    "type": "object"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Saved workspace and incremented revision"
+          },
+          "400": {
+            "description": "Invalid product state"
+          },
+          "409": {
+            "description": "Revision conflict"
+          }
+        }
+      }
+    },
+    "/api/action": {
+      "post": {
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "required": ["revision", "kind"],
+                "properties": {
+                  "revision": {
+                    "type": "integer",
+                    "minimum": 0
+                  },
+                  "kind": {
+                    "type": "string"
+                  }
+                },
+                "description": "Product-specific operation input. See documented examples and domain validation."
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Persisted result, state and new revision"
+          },
+          "400": {
+            "description": "Invalid input"
+          },
+          "403": {
+            "description": "Origin/host denied"
+          },
+          "409": {
+            "description": "Revision conflict"
+          }
+        }
+      }
+    },
+    "/api/export": {
+      "get": {
+        "parameters": [
+          {
+            "name": "id",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "format",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "enum": ["json", "csv", "markdown"]
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Selected run attachment with assumptions"
+          },
+          "404": {
+            "description": "Run not found"
+          }
+        }
+      }
+    }
+  },
+  "x-example-action": {
+    "revision": 0,
+    "kind": "run",
+    "version": "both"
+  },
+  "x-limits": {
+    "bodyBytes": 131072,
+    "mode": "local, unauthenticated"
+  }
+}

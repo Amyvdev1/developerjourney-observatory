@@ -1,0 +1,29 @@
+{
+  "name": "developerjourney-observatory",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Developer Onboarding & Recovery Observatory",
+  "license": "MIT",
+  "author": "Amy Villa <amyv.dev@gmail.com>",
+  "engines": {
+    "node": ">=24.0.0"
+  },
+  "scripts": {
+    "dev": "vite --host 127.0.0.1",
+    "start": "node src/server.mjs",
+    "build": "vite build",
+    "test": "node --test tests/*.test.mjs",
+    "test:e2e": "node scripts/browser-check.mjs",
+    "check": "node scripts/check.mjs"
+  },
+  "dependencies": {
+    "react": "19.2.1",
+    "react-dom": "19.2.1"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-react": "5.0.4",
+    "playwright": "1.62.1",
+    "vite": "7.3.7"
+  }
+}
