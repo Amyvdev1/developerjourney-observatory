@@ -1,3 +1,12 @@
+# Developer Journey Observatory — API Onboarding & Friction Telemetry Engine
+**Stack:** TypeScript • Python • API Telemetry • Deterministic Evaluation Rubrics
+
+### Architectural Overview
+Measures and audits the end-to-end engineering friction between initial API key generation, first authenticated request, and successful error recovery—converting subjective "developer experience" into quantifiable latency and failure-resolution metrics.
+
+
+---
+
 # DeveloperJourney
 
 **Developer Onboarding & Recovery Observatory**
